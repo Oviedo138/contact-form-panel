@@ -1,0 +1,49 @@
+<div *ngIf="!loadingInfo && user">
+    <div class="main-container">
+        <div class="flex align-items-center mb-4 flex-column">
+            <div *ngIf="!tmpImage">
+                <p-avatar *ngIf="user?.photoURL" [image]="user!.photoURL" size="xlarge" shape="circle"></p-avatar>
+            </div>
+            <div *ngIf="tmpImage" class="flex flex-row justify-content-center align-items-center gap-2">
+                <p-avatar *ngIf="oldImage" [image]="oldImage" size="xlarge" shape="circle"></p-avatar>
+                <i class="pi pi-arrow-right"></i>
+                <p-avatar *ngIf="tmpImage" [image]="tmpImage.image" size="xlarge" shape="circle"></p-avatar>
+            </div>
+            <!-- <p-fileUpload id="uploadBtn" mode="basic" chooseLabel="Cambiar foto"
+                url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*" [maxFileSize]="1000000"
+                (onUpload)="onUpload($event)" [auto]="true"></p-fileUpload> -->
+        </div>
+        <form [formGroup]="form">
+            <div class="flex flex-column mb-4">
+                <label class="mb-1">Nombre(s)<span style="color:red">*</span></label>
+                <input type="text" pInputText formControlName="name" trim="blur" />
+                <small *ngIf="form.controls['name'].invalid && form.controls['name'].touched" class="p-error">*
+                    Requerido</small>
+            </div>
+
+            <div class="flex flex-column mb-4">
+                <label class="mb-1">Correo electrónico<span style="color:red">*</span></label>
+                <input type="text" pInputText formControlName="email" trim="blur" readonly />
+                <small *ngIf="form.controls['email'].invalid && form.controls['email'].touched" class="p-error">*
+                    Requerido</small>
+            </div>
+
+            <div class="flex flex-column mb-4">
+                <label class="mb-1">Celular</label>
+                <p-inputMask mask="(999) 999-9999" formControlName="phone" placeholder="(999) 999-9999"></p-inputMask>
+            </div>
+        </form>
+    </div>
+
+    <div class="flex justify-content-between gap-4">
+        <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-danger"
+            (click)="ref.close(false)"></button>
+        <button pButton pRipple label="Guardar" icon="pi pi-check" [loading]="isLoading"
+            (click)="validateForm()"></button>
+    </div>
+
+</div>
+
+<div *ngIf="loadingInfo" class="flex justify-content-center w-full">
+    <p-progressSpinner ariaLabel="loading"></p-progressSpinner>
+</div>

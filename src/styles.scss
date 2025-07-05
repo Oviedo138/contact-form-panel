@@ -1,0 +1,401 @@
+/* You can add global styles to this file, and also import other style files */
+
+$gutter: 1rem; //for primeflex grid system
+@import "assets/layout/styles/layout/layout.scss";
+
+/* PrimeNG */
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeflex/primeflex.scss";
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/quill/dist/quill.core.css";
+@import "../node_modules/quill/dist/quill.snow.css";
+
+@import "ckeditor5/ckeditor5.css";
+@import "ckeditor5-premium-features/ckeditor5-premium-features.css";
+
+:root {
+    --primary-color: #0069a7;
+    --primary-secondary: #191919;
+    --red: #ef4444;
+}
+
+p {
+    margin: 0 !important;
+}
+
+.simple-button {
+    padding: 0px;
+    width: fit-content;
+    background-color: transparent;
+    color: var(--red);
+    border: none;
+    cursor: pointer;
+}
+
+.p-avatar img {
+    object-fit: cover;
+}
+
+.p-card,
+.p-column-filter-overlay {
+    height: 100%;
+}
+
+.p-card .p-card-body {
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+}
+.p-card .p-card-content {
+    height: 100%;
+}
+
+.p-progress-spinner-circle {
+    animation:
+        p-progress-spinner-dash 1.5s ease-in-out infinite,
+        p-progress-spinner-color 0s ease-in-out infinite;
+}
+
+.p-column-filter-menu-button {
+    color: white;
+    background-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: rgb(255, 255, 255);
+        background-color: rgb(97, 191, 253);
+    }
+}
+
+.p-colorpicker {
+    width: 30px;
+    height: 30px;
+}
+
+.p-colorpicker-overlay-panel {
+    right: 0px !important;
+    left: auto !important;
+}
+
+.p-password,
+.p-inputtext,
+.p-dropdown {
+    box-shadow: none !important;
+    width: 100%;
+
+    &:focus-visible,
+    &:hover {
+        // border-color: var(--primary-color);
+        border-color: var(--primary-secondary);
+    }
+}
+
+.p-datatable .p-datatable-header {
+    padding-top: 0px;
+    border: 0px;
+    background-color: transparent;
+}
+
+.p-card,
+.p-column-filter-overlay {
+    box-shadow:
+        rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.p-breadcrumb {
+    background-color: transparent;
+    border: 0px;
+    box-shadow: 0px;
+    width: fit-content;
+}
+
+.table {
+    .p-datatable-thead {
+        color: white;
+    }
+    .p-datatable .p-sortable-column {
+        background-color: var(--primary-color);
+        color: white;
+        &:first-child {
+            border-radius: 12px 0px 0px 0px;
+        }
+        &:last-child {
+            border-radius: 0px 12px 0px 0px;
+        }
+    }
+    .p-datatable .p-sortable-column .p-sortable-column-icon {
+        color: white;
+        border-radius: 16px;
+    }
+}
+
+.p-table {
+    border-radius: 12px;
+}
+
+.p-button {
+    border: none;
+    box-shadow: none !important;
+}
+
+.p-dialog-content,
+.p-dialog-footer {
+    padding: 1rem 1.5rem;
+}
+
+.p-dialog-content {
+    overflow: visible !important;
+}
+
+.p-dialog {
+    box-shadow: none;
+    margin: 0 20px;
+    @media (min-width: 768px) {
+        margin: 0;
+    }
+}
+
+// .p-dialog-content {
+//     overflow: hidden;
+//     box-shadow: none;
+//     padding: 0;
+//     border-radius: 8px;
+// }
+
+input {
+    outline: none;
+}
+
+.p-togglebutton.p-button {
+    background: #ebe9e9;
+}
+
+.p-togglebutton.p-button.p-highlight {
+    background-color: #191919 !important;
+}
+
+.input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    small {
+        position: absolute;
+        left: 0px;
+        top: 102%;
+    }
+    label {
+        font-size: 16px;
+        color: var(--primary-secondary);
+        font-weight: 600;
+    }
+}
+
+.p-image-preview-container > img {
+    object-fit: cover;
+    height: 100px;
+}
+
+.p-image-preview {
+    max-width: 80vh;
+    max-height: 80vh;
+}
+
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight {
+    color: white;
+    background-color: var(--primary-color);
+}
+
+.p-calendar,
+.p-autocomplete,
+.p-togglebutton,
+.p-multiselect,
+.p-listbox,
+.p-chips,
+.p-inputnumber,
+// .p-inputtext,
+.p-icon-field {
+    width: 100% !important;
+}
+
+.p-treeselect {
+    box-shadow: none;
+}
+
+.p-datepicker table td > span.p-highlight,
+.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {
+    color: #ffffff;
+    background: var(--primary-color);
+    box-shadow: none;
+}
+
+.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-tree-toggler,
+.p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight .p-treenode-icon {
+    color: white;
+}
+
+.animation {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0px);
+    transition: all 0.3s ease-in-out;
+
+    &.active-animation {
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight,
+.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item.p-highlight {
+    color: white;
+    background-color: var(--primary-color);
+}
+
+.p-checkbox .p-checkbox-box.p-highlight {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+}
+
+.p-fileupload .p-fileupload-buttonbar {
+    display: flex;
+    gap: 10px;
+}
+
+#icon-clock {
+    &.pointer-events-none {
+        position: absolute;
+        top: 7px;
+        right: 0;
+        width: 36px;
+        height: 39px;
+        background-color: #191919;
+        color: #ffffff;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.p-listbox .p-listbox-list {
+    padding: 5px;
+    width: 100%;
+
+    .p-listbox-item.p-highlight {
+        width: 100%;
+        background-color: var(--primary-color);
+        color: white;
+    }
+}
+
+.p-listbox-list-wrapper {
+    li {
+        &:first-child {
+            border-radius: 6px 6px 0px 0px;
+        }
+
+        &:last-child {
+            border-radius: 0px 0px 6px 6px;
+        }
+    }
+}
+
+.p-tabview .p-tabview-nav li {
+    width: 100%;
+
+    a {
+        display: flex;
+        justify-content: center;
+        color: var(--primary-secondary);
+    }
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+
+    i {
+        color: var(--primary-color) !important;
+    }
+}
+
+.p-accordion .p-accordion-content {
+    // padding: 0px;
+    // padding-top: 20px;
+    // border: none;
+    background-color: transparent;
+}
+
+p-inputNumber,
+p-treeselect {
+    width: 100%;
+}
+
+.p-chips .p-chips-multiple-container .p-chips-token {
+    background-color: var(--primary-secondary);
+    color: white;
+}
+
+// FULL CALENDAR
+.fc-toolbar-title {
+    text-transform: capitalize;
+}
+
+.fc-event {
+    cursor: pointer;
+    color: #191919;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+    background-color: #1919191a;
+}
+
+.fc-direction-ltr .fc-button-group > .fc-button {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+    background-color: var(--primary-secondary);
+    border-color: var(--primary-secondary);
+}
+
+.fc .fc-scrollgrid table {
+    width: 100% !important;
+}
+
+.fc-direction-ltr,
+.fc .fc-daygrid-body,
+.fc .fc-scrollgrid-section-body table,
+.fc .fc-scrollgrid-section-footer table {
+    max-height: 700px;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.overflow-line,
+.fc .fc-scroller-liquid-absolute {
+    overflow: auto;
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #e1e1e1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #c8c7c7;
+        border-radius: 10px;
+    }
+}
+
+.p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
+    color: var(--primary-color);
+}

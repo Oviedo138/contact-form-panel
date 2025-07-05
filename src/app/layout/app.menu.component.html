@@ -1,0 +1,11 @@
+<ul class="layout-menu">
+    <ng-container>
+        <a class="layout-topbar-logo flex justify-content-center mb-5 mt-2" routerLink="">
+            <img src="/assets/images/logo.png" alt="logo" width="200">
+        </a>
+    </ng-container>
+    <ng-container *ngFor="let item of model; let i = index;">
+        <li app-menuitem *ngIf="!item.separator" [item]="item" [index]="i" [root]="true"></li>
+        <li *ngIf="item.separator" class="menu-separator"></li>
+    </ng-container>
+</ul>

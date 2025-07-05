@@ -1,0 +1,21 @@
+{
+    "projects": {
+        "default": "contact-form-ebf7e"
+    },
+    "targets": {
+        "contact-form-ebf7e": {
+            "hosting": {
+                "default": [
+                    "contact-form-ebf7e"
+                ],
+                "web": [
+                    "contacto-web"
+                ],
+                "panel": [
+                    "contacto-panel"
+                ]
+            }
+        }
+    },
+    "etags": {}
+}

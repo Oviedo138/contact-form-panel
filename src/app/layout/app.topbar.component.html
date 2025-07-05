@@ -1,0 +1,44 @@
+@if (currentUser) {
+<div class="layout-topbar">
+    <a class="layout-topbar-logo" routerLink="">
+        <img src="/assets/images/logo.png" alt="logo">
+    </a>
+
+    <button #menubutton class="p-link layout-menu-button layout-topbar-button" style="margin: 0;"
+        (click)="layoutService.onMenuToggle()">
+        <i class="pi pi-bars"></i>
+    </button>
+
+    <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button"
+        (click)="layoutService.showProfileSidebar()">
+        <i class="pi pi-ellipsis-v"></i>
+    </button>
+
+
+
+    <div #topbarmenu class="layout-topbar-menu"
+        [ngClass]="{'layout-topbar-menu-mobile-active': layoutService.state.profileSidebarVisible}">
+        <p class="font-semibold mt-3 name-porfile">{{currentUser.displayName}}</p>
+        <button class="p-link layout-topbar-button" (click)="menu.toggle($event)">
+
+            <img style="width: 30px; height: 30px; border-radius: 50%; object-fit: cover;" [src]="currentUser.photoURL"
+                alt="">
+            <span class="ml-2">{{currentUser.displayName}}</span>
+        </button>
+        <!-- <p-button icon="pi pi-check" [rounded]="true" [text]="true" /> -->
+        <!-- <p-button (onClick)="menu.toggle($event)" icon="pi pi-ellipsis-v" /> -->
+        <!-- <button class="p-link layout-topbar-button" (click)="onConfigButtonClick()">
+            <i class="pi pi-cog"></i>
+            <span>Settings</span>
+        </button> -->
+    </div>
+</div>
+
+
+<!-- <p-sidebar [(visible)]="sideProfile" position="right">
+    <h3>Right Sidebar</h3>
+</p-sidebar> -->
+}
+
+<p-confirmDialog key="header-dialog"></p-confirmDialog>
+<p-menu #menu [model]="items" [popup]="true" />
