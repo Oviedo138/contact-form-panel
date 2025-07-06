@@ -9,11 +9,12 @@ import { CardModule } from 'primeng/card';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
-import { TableModule } from 'primeng/table';
+import { Table, TableModule } from 'primeng/table';
 import { ToastService } from 'src/app/main/services/toast.service';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { CrmService } from '../../service/crm.service';
 import { RatingModule } from 'primeng/rating';
+import { CrmInfoModalComponent } from '../crm-info-modal/crm-info-modal.component';
 
 @Component({
     selector: 'app-crm-main-page',
@@ -67,6 +68,11 @@ export class CrmMainPageComponent {
         }
     }
 
+
+    onGlobalFilter(table: Table, event: Event) {
+        table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
+    }
+
     async confirmDelete(contact: any) {
         this.confirmationService.confirm({
             key: "crm-confirm-dialog",
@@ -118,8 +124,22 @@ export class CrmMainPageComponent {
         const day = dateObj.getDate();
         const monthName = months[dateObj.getMonth()];
         const year = dateObj.getFullYear();
-
         return `${dayName}, ${day} de ${monthName} de ${year}`;
+    }
+
+    openCrmModal(client: any) {
+        const dialogRef = this.dialogService.open(CrmInfoModalComponent, {
+            header: 'Información de contacto',
+            width: '500px',
+            // height: '560px',
+            baseZIndex: 10000,
+            data: { client }
+        });
+        dialogRef.onClose.subscribe(async (reload: boolean) => {
+            if (reload) {
+                await this.getCrm();
+            }
+        });
     }
 
 }

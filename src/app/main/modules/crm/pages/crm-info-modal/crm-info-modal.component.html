@@ -1,0 +1,24 @@
+<div class="main-container">
+    <div class="flex flex-column gap-4 pb-5">
+        <div class="flex flex-column">
+            <label class="mb-1">Nombre</label>
+            <input type="text" pInputText [value]="data.name" disabled />
+        </div>
+        <div class="flex flex-column">
+            <label class="mb-1">Correo electrónico</label>
+            <input type="email" pInputText [value]="data.email" disabled />
+        </div>
+        <div class="flex flex-column">
+            <label class="mb-1">Teléfono</label>
+            <input type="text" pInputText [value]="data.phone" disabled />
+        </div>
+        <div class="flex flex-column">
+            <label class="mb-1">Mensaje</label>
+            <textarea rows="5" pInputTextarea [value]="data.message" disabled></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="flex justify-content-between gap-3">
+    <p-button label="Cerrar" icon="pi pi-times" [loading]="loader" (onClick)="ref.close(false)" severity="danger" />
+</div>
